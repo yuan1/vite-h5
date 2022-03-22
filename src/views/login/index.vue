@@ -1,6 +1,6 @@
 <script setup>
-const msg = "login";
-console.log(msg);
+  const msg = 'login';
+  console.log(msg);
 </script>
 
 <template>

@@ -4,17 +4,14 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-const router = useRouter();
-const msg = "home";
-console.log(msg);
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+  const msg = 'home';
+  console.log(msg);
 
-const openLink = () => {
-  router.push('/login')
-
-}
-
+  const openLink = () => {
+    router.push('/login');
+  };
 </script>
-
 
 <style></style>

@@ -2,7 +2,7 @@
  * api接口的统一出口
  */
 
-import user from './user'
+import user from './user';
 
 // app模块接口
 
@@ -12,5 +12,4 @@ import user from './user'
 export default {
   user,
   // ……
-}
-
+};

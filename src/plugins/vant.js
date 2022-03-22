@@ -1,5 +1,5 @@
 // 按需全局引入 vant组件
-import { Button } from "vant";
+import { Button } from 'vant';
 
 const plugins = [Button];
 
