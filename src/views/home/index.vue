@@ -58,7 +58,7 @@
   const handleCheck = (s) => {
     const index = checkList.value.indexOf(s.key);
     if (index > -1) {
-      checkList.value.splice(index);
+      checkList.value.splice(index,1);
     } else {
       checkList.value.push(s.key);
     }
