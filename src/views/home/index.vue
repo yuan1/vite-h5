@@ -37,14 +37,18 @@
       >{{ s.key }}:{{ s.value }}</p
     >
   </div>
-
+  <QuillEditor theme="snow" />
   <van-button type="primary" @click="openLink">跳转Login</van-button>
 </template>
 
 <script setup>
   import { useRouter } from 'vue-router';
   import ShowMore from '@/components/ShowMore.vue';
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
+  import { QuillEditor } from '@vueup/vue-quill';
+  import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
+  onMounted(() => {});
   const router = useRouter();
 
   const showList = [
@@ -58,11 +62,11 @@
   const handleCheck = (s) => {
     const index = checkList.value.indexOf(s.key);
     if (index > -1) {
-      checkList.value.splice(index,1);
+      checkList.value.splice(index, 1);
     } else {
       checkList.value.push(s.key);
     }
-    console.log(checkList.value)
+    console.log(checkList.value);
   };
 
   const openLink = () => {
