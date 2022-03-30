@@ -1,7 +1,7 @@
 // 按需全局引入 vant组件
-import { Button } from 'vant';
+import { Button, Form, CellGroup, Field } from 'vant';
 
-const plugins = [Button];
+const plugins = [Button, Form, CellGroup, Field];
 
 export const vantPlugins = {
   install: function (vm) {
