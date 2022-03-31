@@ -104,6 +104,46 @@
 
   const intervalTime = getInterval(new Date(), new Date('2022-4-2 0:0:0'));
 
+  const isDuringDate = (beginDateStr, endDateStr) => {
+    // test
+    // const curDate = new Date("2022/04/25 01:00:00");
+    const curDate = new Date();
+    const beginDate = new Date(beginDateStr);
+    const endDate = new Date(endDateStr);
+    if (curDate >= beginDate && curDate <= endDate) {
+      return true;
+    }
+    return false;
+  };
+  const list = [
+    {
+      date: '2022.04.15',
+      title: '启动会',
+      active: isDuringDate('2022/04/15 00:00:00', '2022/04/24 23:59:59'),
+    },
+    {
+      date: '04.25～08.31',
+      title: '线上培训与知识竞答',
+      active: isDuringDate('2022/04/25 00:00:00', '2022/08/31 23:59:59'),
+    },
+    {
+      date: '04.25～08.15',
+      title: '案例论文征集',
+      active: isDuringDate('2022/04/25 00:00:00', '2022/08/15 23:59:59'),
+    },
+    {
+      date: '08.16～08.31',
+      title: '案例论文网络投票',
+      active: isDuringDate('2022/08/16 00:00:00', '2022/08/31 23:59:59'),
+    },
+    {
+      date: '09月',
+      title: '活动结果公示',
+      active: isDuringDate('2022/09/01 00:00:00', '2022/12/31 23:59:59'),
+    },
+  ];
+  console.log(list);
+
   const router = useRouter();
   const username = ref('');
   const password = ref('');
