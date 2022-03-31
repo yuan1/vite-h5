@@ -66,6 +66,10 @@
   </div>
   <QuillEditor theme="snow" />
   <van-button type="primary" @click="openLink">跳转Login</van-button>
+  <p>{{ intervalTime.day }}d</p>
+  <p>{{ intervalTime.hour }}h</p>
+  <p>{{ intervalTime.minute }}m</p>
+  <p>{{ intervalTime.second }}s</p>
 </template>
 
 <script setup>
@@ -75,7 +79,31 @@
   import { QuillEditor } from '@vueup/vue-quill';
   import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
-  onMounted(() => {});
+  const getInterval = (start, end) => {
+    // 两个日期对象，相差的毫秒数
+    let interval = end - start;
+    // 求 相差的天数/小时数/分钟数/秒数
+    let day, hour, minute, second;
+
+    // 两个日期对象，相差的秒数
+    // interval = interval / 1000;
+    interval /= 1000;
+
+    day = Number.parseInt(interval / 60 / 60 / 24);
+    hour = Number.parseInt((interval / 60 / 60) % 24);
+    minute = Number.parseInt((interval / 60) % 60);
+    second = Number.parseInt(interval % 60);
+
+    return {
+      day: day,
+      hour: hour,
+      minute: minute,
+      second: second,
+    };
+  };
+
+  const intervalTime = getInterval(new Date(), new Date('2022-4-2 0:0:0'));
+
   const router = useRouter();
   const username = ref('');
   const password = ref('');
