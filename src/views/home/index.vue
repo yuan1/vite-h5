@@ -66,16 +66,16 @@
   </div>
   <QuillEditor theme="snow" />
   <van-button type="primary" @click="openLink">跳转Login</van-button>
-  <p>{{ intervalTime.day }}d</p>
-  <p>{{ intervalTime.hour }}h</p>
-  <p>{{ intervalTime.minute }}m</p>
-  <p>{{ intervalTime.second }}s</p>
+  <p v-if="intervalTime.day > 0">{{ intervalTime.day }}d</p>
+  <p v-if="intervalTime.hour > 0">{{ intervalTime.hour }}h</p>
+  <p v-if="intervalTime.minute > 0">{{ intervalTime.minute }}m</p>
+  <p v-if="intervalTime.second > 0">{{ intervalTime.second }}s</p>
 </template>
 
 <script setup>
   import { useRouter } from 'vue-router';
   import ShowMore from '@/components/ShowMore.vue';
-  import { onMounted, ref } from 'vue';
+  import { ref } from 'vue';
   import { QuillEditor } from '@vueup/vue-quill';
   import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
