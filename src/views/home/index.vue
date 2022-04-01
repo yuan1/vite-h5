@@ -66,10 +66,15 @@
   </div>
   <QuillEditor theme="snow" />
   <van-button type="primary" @click="openLink">跳转Login</van-button>
-  <p v-if="intervalTime.day > 0">{{ intervalTime.day }}d</p>
-  <p v-if="intervalTime.hour > 0">{{ intervalTime.hour }}h</p>
-  <p v-if="intervalTime.minute > 0">{{ intervalTime.minute }}m</p>
-  <p v-if="intervalTime.second > 0">{{ intervalTime.second }}s</p>
+  <p v-if="getInterval('2022/04/25') > 0">{{ getInterval('2022/04/25') }}->d1</p>
+  <template v-else>
+    <p v-if="getInterval('2022/08/31') > 0"
+      >{{ getInterval('2022/08/31') }}->d2</p
+    >
+    <p v-if="getInterval('2022/08/15') > 0"
+      >{{ getInterval('2022/08/15') }}->d3</p
+    >
+  </template>
 </template>
 
 <script setup>
@@ -79,27 +84,10 @@
   import { QuillEditor } from '@vueup/vue-quill';
   import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
-  const getInterval = (start, end) => {
-    // 两个日期对象，相差的毫秒数
-    let interval = end - start;
-    // 求 相差的天数/小时数/分钟数/秒数
-    let day, hour, minute, second;
-
-    // 两个日期对象，相差的秒数
-    // interval = interval / 1000;
+  const getInterval = (end) => {
+    let interval = new Date(end) - new Date();
     interval /= 1000;
-
-    day = Number.parseInt(interval / 60 / 60 / 24);
-    hour = Number.parseInt((interval / 60 / 60) % 24);
-    minute = Number.parseInt((interval / 60) % 60);
-    second = Number.parseInt(interval % 60);
-
-    return {
-      day: day,
-      hour: hour,
-      minute: minute,
-      second: second,
-    };
+    return Number.parseInt(interval / 60 / 60 / 24) + 1;
   };
 
   const intervalTime = getInterval(new Date(), new Date('2022-4-2 0:0:0'));
