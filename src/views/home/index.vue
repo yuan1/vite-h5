@@ -90,8 +90,6 @@
     return Number.parseInt(interval / 60 / 60 / 24) + 1;
   };
 
-  const intervalTime = getInterval(new Date(), new Date('2022-4-2 0:0:0'));
-
   const isDuringDate = (beginDateStr, endDateStr) => {
     // test
     // const curDate = new Date("2022/04/25 01:00:00");
