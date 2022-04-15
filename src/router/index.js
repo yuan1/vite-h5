@@ -1,4 +1,22 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import user from '@/api/user';
+import { Toast } from 'vant';
+
+const checkUser = async () => {
+  let res;
+  try {
+    res = await user.check();
+  } catch (error) {
+    console.error(error);
+  }
+  console.log(res);
+  if (!res) {
+    return false;
+  }
+  if (res === 'login') {
+    return { path: 'login' };
+  }
+};
 
 const routes = [
   {
@@ -11,6 +29,12 @@ const routes = [
     name: 'login',
     component: () => import('../views/login/index.vue'),
   },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: () => import('../views/detail/index.vue'),
+    beforeEnter: [checkUser],
+  },
 ];
 
 const router = createRouter({
@@ -19,4 +43,15 @@ const router = createRouter({
   routes, // `routes: routes` 的缩写
 });
 
+router.beforeEach((to, from) => {
+  Toast.loading({
+    message: '加载中...',
+    forbidClick: true,
+    duration: 0,
+  });
+});
+
+router.afterEach((to, from) => {
+  Toast.clear();
+});
 export default router;
