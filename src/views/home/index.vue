@@ -72,7 +72,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 const getInterval = (end) => {
   let interval = new Date(end) - new Date();
   interval /= 1000;
-  return Number.parseInt(interval / 60 / 60 / 24) + 1;
+  return Math.floor(interval / 60 / 60 / 24) + 1;
 };
 
 const isDuringDate = (beginDateStr, endDateStr) => {
