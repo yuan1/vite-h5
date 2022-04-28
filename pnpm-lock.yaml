@@ -8,6 +8,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-vue: ^8.5.0
   lib-flexible: ^0.3.2
+  pdfh5: ^1.4.2
   postcss-pxtorem: ^6.0.0
   prettier: 2.5.1
   sass: ^1.49.9
@@ -22,6 +23,7 @@ dependencies:
   '@vueup/vue-quill': 1.0.0-beta.8_vue@3.2.31
   axios: 0.26.1
   lib-flexible: 0.3.2
+  pdfh5: 1.4.2
   vant: 3.4.6_vue@3.2.31
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
@@ -1227,6 +1229,10 @@ packages:
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
     dev: true
+
+  /pdfh5/1.4.2:
+    resolution: {integrity: sha512-1BL8HIx/EEZowRPBgas7/WokbGEv1gxKNRmmHSimG113178mKxIBH4pxWBc0tj6d25Sy+EwnlQwv9cUUmQa42w==}
+    dev: false
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}

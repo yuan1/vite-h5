@@ -30,6 +30,11 @@ const routes = [
     component: () => import('../views/login/index.vue'),
   },
   {
+    path: '/pdf',
+    name: 'pdf',
+    component: () => import('../views/pdf/index.vue'),
+  },
+  {
     path: '/detail',
     name: 'detail',
     component: () => import('../views/detail/index.vue'),
